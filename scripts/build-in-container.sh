@@ -68,7 +68,7 @@ rpmspec -P "/root/rpmbuild/SPECS/${spec_base}" \
 
 if [[ -n "${EXTRA_REPO_DIR}" ]]; then
     echo "Registering extra dnf repo: ${EXTRA_REPO_DIR}"
-    printf '[extra-repo]\nname=Extra RPM Repository\nbaseurl=%s\nenabled=1\ngpgcheck=0\nskip_if_unavailable=1\n' \
+    printf '[extra-repo]\nname=Extra RPM Repository\nbaseurl=%s\nenabled=1\ngpgcheck=0\nskip_if_unavailable=1\npriority=1\n' \
         "${EXTRA_REPO_DIR}" > /etc/yum.repos.d/extra-repo.repo
     dnf clean metadata
 fi
